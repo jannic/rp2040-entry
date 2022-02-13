@@ -1,5 +1,8 @@
 [package]
+description = "Extension of the `cortex-m-rt` `#[entry]` with rp2040 specific initialization code."
+license = "MIT OR Apache-2.0"
 name = "rp2040-entry"
+readme = "README.md"
 version = "0.1.0"
 edition = "2021"
 
@@ -9,6 +12,7 @@ proc-macro = true
 [dependencies]
 quote = "1.0"
 proc-macro2 = "1.0"
+cortex-m-rt = "0.7.0"
 
 [dependencies.syn]
 features = ["extra-traits", "full"]
