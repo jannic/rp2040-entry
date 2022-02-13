@@ -20,7 +20,7 @@ pub fn entry(args: TokenStream, input: TokenStream) -> TokenStream {
         const SPINLOCK0: u32 = SIO_BASE + 0x100;
         const SPINLOCK_COUNT: u32 = 32;
         for i in 0..SPINLOCK_COUNT {
-            core::ptr::write_volatile((SPINLOCK0 + 4 * i) as *mut u32, 1);
+            ::core::ptr::write_volatile((SPINLOCK0 + 4 * i) as *mut u32, 1);
         }
     })
     .into();
@@ -31,7 +31,7 @@ pub fn entry(args: TokenStream, input: TokenStream) -> TokenStream {
     f.block.stmts = stmts;
 
     quote!(
-        #[cortex_m_rt::entry]
+        #[::cortex_m_rt::entry]
         #f
     )
     .into()
